@@ -1,3 +1,4 @@
+from flask import jsonify
 from datetime import datetime
 import pandas as pd
 import json
@@ -27,5 +28,6 @@ for id in list_all_risk:
     }
     risk_list.append(each_address_risk)
 
-json_risk = json.dumps(risk_list, ensure_ascii=False)
-print(json_risk[5])
+#json_risk = json.dumps(risk_list, ensure_ascii=False)
+json_risk = jsonify(risk_list)
+print(json_risk)
