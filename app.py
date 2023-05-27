@@ -14,7 +14,8 @@ def my_function():
     get_district = '永康區'
     get_weather = '晴'
     current_time = datetime.now()
-    hour = current_time.hour
+    #hour = current_time.hour
+    hour = 17
 
     # 取得符合條件的 df 單一 row
     df_risk = pd.read_csv('csv_file/for_web.csv')
