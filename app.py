@@ -8,14 +8,12 @@ app = Flask(__name__)
 @app.route('/api/myfunction', methods=['GET'])
 def my_function():
     # 分別取得「行政區」「天氣」「時間」
-    # http://http://192.168.1.225:8000/api/myfunction?district=value1&weather=value2
-    # get_district = request.args.get('district')
-    # get_weather = request.args.get('weather')
-    get_district = '永康區'
-    get_weather = '晴'
+    # 
+    get_district = request.args.get('district')
+    get_weather = request.args.get('weather')
     current_time = datetime.now()
-    #hour = current_time.hour
-    hour = 17
+    hour = current_time.hour
+    #hour = 17
 
     # 取得符合條件的 df 單一 row
     df_risk = pd.read_csv('csv_file/for_web.csv')
@@ -60,6 +58,7 @@ def my_function():
     json_data = json.dumps(risk_list, ensure_ascii=False)
     #json_risk = jsonify(json_data)
     response = Response(json_data, content_type='application/json; charset=utf-8')
+    response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
 if __name__ == '__main__':
