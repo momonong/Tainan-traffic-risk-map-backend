@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/', methods=['GET'])
 def my_function():
     # 分別取得「行政區」「天氣」「時間」
-    # http://10.7.78.40:8000/?district=東區&weather=陰
+    # http://127.0.0.1/?district=東區&weather=陰
     get_district = request.args.get('district')
     get_weather = request.args.get('weather')
     current_time = datetime.now()
